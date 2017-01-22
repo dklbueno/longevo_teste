@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'sac' %}
+
+{% block titpag 'Lista de Chamados' %}
+
+{% block content %}
+    <div class="content">
+        
+    <table id="chamados" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Id Pedido</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Id Pedido</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for chamado in chamados %}            
+            <tr>
+                <td>{{ chamado.id }}</td>
+                <td>{{ chamado.title }}</td>
+                <td>{{ chamado.name }}</td>
+                <td>{{ chamado.email }}</td>
+                <td>{{ chamado.id_pedido }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+    $(function(){
+        $('#chamados').DataTable({
+            lengthMenu: [5, 10, 15, 25, 100],
+        });
+    })
+    </script>
+{% endblock %}

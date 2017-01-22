@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'sac' %}
+
+{% block titpag 'Cadastro de Chamado' %}
+
+{% block content %}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.msg }}
+        </div>
+    {% endif %}
+
+    {% if success %}
+        <div class="alert alert-success">
+            {{ success.msg }}
+        </div>
+    {% endif %}
+
+    <div class="content">
+        <div class="col-lg-12">
+            <div class="well">
+                <form action="{{ path('sac_index') }}" method="post">
+                    <fieldset>
+                        <legend>Chamado</legend>
+                        <div class="form-group">
+                            <label for="name">Nome Cliente</label>
+                            <input required type="text" id="name" name="name" value="" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input required type="text" id="email" name="email" value="" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="pedido">Pedido</label>
+                            <input required type="number" id="pedido" name="pedido" value="" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Título</label>
+                            <input required type="text" id="title" name="title" value="" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Observação</label>
+                            <textarea id="description" name="description" class="form-control"></textarea>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                        <button type="submit" name="Submit" value="Enviar" class="btn btn-primary">
+                            Enviar
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    
+{% endblock %}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>{% block title %}Sac - Longevo{% endblock %}</title>
+        
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/longevosac/css/bootstrap-flatly-3.3.7.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/longevosac/css/font-awesome-4.6.3.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/longevosac/css/font-lato.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/longevosac/css/bootstrap-datetimepicker.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/longevosac/css/highlight-solarized-light.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/longevosac/css/main.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/longevosac/css/jquery.dataTables.css') }}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/favicon.ico') }}" />
+    </head>
+
+    <body id="{% block body_id %}{% endblock %}">
+
+        {% block header %}
+            <header>
+                <div class="navbar navbar-default navbar-static-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ path('sac_index') }}">
+                                LONGEVO - SAC
+                            </a>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="{{ path('sac_index') }}">
+                                        <i class="fa fa-tasks" aria-hidden="true"></i> Cadastro de Chamado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('chamado_index') }}">
+                                        <i class="fa fa-list" aria-hidden="true"></i> Lista de Chamados
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        {% endblock %}
+
+        <div class="container body-container">
+            {% block body %}
+                <div class="row">
+                    <div id="main" class="col-sm-12">
+                        {{ include('default/_flash_messages.html.twig') }}
+                        <h1>{% block titpag %}{% endblock %}</h1>
+                        {% block content %}{% endblock %}
+                    </div>                    
+                </div>
+            {% endblock %}
+        </div>
+
+        {% block footer %}
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div id="footer-copyright" class="col-md-6">
+                            <p>&copy; {{ 'now'|date('Y') }} - Teste Longevo</p>
+                            <p>Daniel Bueno da Silva</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </footer>
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('bundles/longevosac/js/jquery-2.2.4.min.js') }}"></script>
+            <script src="{{ asset('bundles/longevosac/js/moment.min.js') }}"></script>
+            <script src="{{ asset('bundles/longevosac/js/bootstrap-3.3.7.min.js') }}"></script>
+            <script src="{{ asset('bundles/longevosac/js/highlight.pack.js') }}"></script>
+            <script src="{{ asset('bundles/longevosac/js/bootstrap-datetimepicker.min.js') }}"></script>
+            <script src="{{ asset('bundles/longevosac/js/main.js') }}"></script>
+            <script src="{{ asset('bundles/longevosac/js/jquery.dataTables.min.js') }}"></script>
+        {% endblock %}
+
+       
+    </body>
+</html>
