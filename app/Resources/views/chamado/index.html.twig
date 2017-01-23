@@ -6,8 +6,18 @@
 
 {% block content %}
     <div class="content">
-        
-    <table id="chamados" class="display" cellspacing="0" width="100%">
+    <form class="form-inline" method="post" action="{{ path('chamado_index') }}">
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" name="email" class="form-control" id="email" value="{{ email }}">
+      </div>
+      <div class="form-group">
+        <label for="id_pedido">Pedido:</label>
+        <input type="number" name="id_pedido" class="form-control" id="id_pedido" value="{{ id_pedido }}">
+      </div>      
+      <button type="submit" name="find" value="find" class="btn btn-default">Filtrar</button>
+    </form>
+    <table id="chamados" class="display table table-striped table-hover" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>Id</th>
@@ -17,17 +27,8 @@
                 <th>Id Pedido</th>
             </tr>
         </thead>
-        <tfoot>
-            <tr>
-                <th>Id</th>
-                <th>Título</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Id Pedido</th>
-            </tr>
-        </tfoot>
         <tbody>
-            {% for chamado in chamados %}            
+            {% for chamado in pagination %}            
             <tr>
                 <td>{{ chamado.id }}</td>
                 <td>{{ chamado.title }}</td>
@@ -38,6 +39,8 @@
             {% endfor %}
         </tbody>
     </table>
+
+    {{ knp_pagination_render(pagination) }}
 
 
     </div>
@@ -51,10 +54,10 @@
     {{ parent() }}
 
     <script>
-    $(function(){
+    /*$(function(){
         $('#chamados').DataTable({
             lengthMenu: [5, 10, 15, 25, 100],
         });
-    })
+    })*/
     </script>
 {% endblock %}

@@ -48,4 +48,26 @@ class ChamadoRepository extends \Doctrine\ORM\EntityRepository
 		$statement->execute();
 		return $statement->fetchAll();
 	}
+
+	public function findFilter($email=null,$id_pedido=null)
+	{
+		$where = null;
+		if($email) $where[] = " cli.email = '".$email."'";
+		if($id_pedido) $where[] = " ped.id = ".$id_pedido." ";
+		$sql = "
+			SELECT DISTINCT ON(cha.id) cha.id, cha.title, cli.name, cli.email, ped.id AS id_pedido
+			FROM chamado cha
+			INNER JOIN cliente cli ON cli.id_cliente = cha.id_cliente
+			INNER JOIN pedido ped ON ped.id_cliente = cli.id_cliente
+			";
+		if(count($where)){
+			$sql.= " WHERE ".implode(" AND ",$where);
+		}
+
+	    $em = $this->getEntityManager();
+		$connection = $em->getConnection();
+		$statement = $connection->prepare($sql);
+		$statement->execute();
+		return $statement->fetchAll();
+	}
 }
