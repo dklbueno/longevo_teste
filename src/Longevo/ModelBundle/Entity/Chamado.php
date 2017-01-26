@@ -39,9 +39,9 @@ class Chamado extends Timestampable
     /**
      * @var int
      *
-     * @ORM\Column(name="id_cliente", type="integer")
+     * @ORM\Column(name="id_pedido", type="integer")
      */
-    private $id_cliente;
+    private $id_pedido;
 
     /**
      * Get id
@@ -104,25 +104,25 @@ class Chamado extends Timestampable
     /**
      * Set id
      *
-     * @param id $id_cliente
+     * @param id $id_pedido
      *
      * @return Chamado
      */
-    public function setIdCliente($id_cliente)
+    public function setIdPedido($id_pedido)
     {
-        $this->id_cliente = $id_cliente;
+        $this->id_pedido = $id_pedido;
 
         return $this;
     }
 
     /**
-     * Get id_cliente
+     * Get id_pedido
      *
      * @return int
      */
-    public function getIdCliente()
+    public function getIdPedido()
     {
-        return $this->id_cliente;
+        return $this->id_pedido;
     }
 
 }

@@ -68,7 +68,8 @@ class IndexController extends Controller
                     }else{
                         $chamado->setTitle($title);
                         $chamado->setDescription($description);
-                        $chamado->setIdCliente($id_cliente);
+                        $chamado->setIdPedido($id_pedido);
+                        //dump($chamado); exit;
                         $em = $this->getDoctrine()->getManager();
                         $em->persist($chamado);
                         $em->flush($chamado);

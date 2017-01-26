@@ -1,18 +1,14 @@
-"id","id_cliente","created_at","updated_at","title","description"
-31,6,"2017-01-21 22:31:59","2017-01-21 22:31:59","Chamado Teste 2","Teste de Chamado"
-33,6,"2017-01-22 15:29:09","2017-01-22 15:29:09","Chamado Teste 3","Este é um teste de chamado"
-35,6,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 6","Descricao do Chamado 50"
-36,6,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 7","Descricao do Chamado 51"
-37,7,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 8","Descricao do Chamado 52"
-38,6,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 18","Descricao do Chamado 53"
-39,7,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 19","Descricao do Chamado 54"
-40,8,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 20","Descricao do Chamado 55"
-41,10,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 21","Descricao do Chamado 56"
-42,11,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 22","Descricao do Chamado 57"
-43,12,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 23","Descricao do Chamado 58"
-44,13,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 24","Descricao do Chamado 59"
-45,15,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 25","Descricao do Chamado 60"
-46,16,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 26","Descricao do Chamado 61"
-47,17,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 27","Descricao do Chamado 62"
-48,18,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 28","Descricao do Chamado 63"
-49,19,"2017-01-22 15:01:39","2017-01-22 15:01:39","Chamado Para resolver pedido 29","Descricao do Chamado 64"
+"id","created_at","updated_at","title","description","id_pedido"
+1,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 1 do pedido 1","Chamado 1 do pedido 1",1
+2,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 2 do pedido 2","Chamado 2 do pedido 2",2
+3,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 3 do pedido 3","Chamado 3 do pedido 3",3
+4,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 4 do pedido 4","Chamado 4 do pedido 4",4
+5,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 5 do pedido 5","Chamado 5 do pedido 5",5
+6,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 6 do pedido 6","Chamado 6 do pedido 6",6
+7,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 7 do pedido 7","Chamado 7 do pedido 7",7
+8,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 8 do pedido 8","Chamado 8 do pedido 8",8
+9,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 9 do pedido 9","Chamado 9 do pedido 9",9
+10,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 10 do pedido 10","Chamado 10 do pedido 10",10
+11,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 11 do pedido 11","Chamado 11 do pedido 11",11
+12,"2017-01-26 07:12:07","2017-01-26 07:12:07","Chamado 12 do pedido 12","Chamado 12 do pedido 12",12
+13,"2017-01-26 08:29:34","2017-01-26 08:29:34","Chamado 2 do pedido 1","Chamado 2 do pedido 1",1

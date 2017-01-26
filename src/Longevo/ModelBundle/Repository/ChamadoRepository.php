@@ -30,14 +30,15 @@ class ChamadoRepository extends \Doctrine\ORM\EntityRepository
 
 	public function findAll()
 	{
-	    /*$qb = $this->getEntityManager()
+	    $qb = $this->getEntityManager()
         ->createQueryBuilder()
         ->select('cha.id,cha.title,cli.name,cli.email, ped.id AS id_pedido')
         ->from('LongevoModelBundle:Chamado','cha')
-        ->join('LongevoModelBundle:Cliente','cli', \Doctrine\ORM\Query\Expr\Join::WITH, 'cli.id = cha.id_cliente')
-        ->leftJoin('cli.pedido','ped');  
-	    return $qb->getQuery()->getResult();*/
-	    $em = $this->getEntityManager();
+        ->join('LongevoModelBundle:Pedido','ped', \Doctrine\ORM\Query\Expr\Join::WITH, 'ped.id = cha.id_pedido')
+        ->leftJoin('ped.cliente','cli')
+        ->orderBy('cha.createdAt', 'desc');  
+	    return $qb->getQuery()->getResult();
+	    /*$em = $this->getEntityManager();
 		$connection = $em->getConnection();
 		$statement = $connection->prepare("
 			SELECT DISTINCT ON(cha.id) cha.id, cha.title, cli.name, cli.email, ped.id AS id_pedido
@@ -46,12 +47,12 @@ class ChamadoRepository extends \Doctrine\ORM\EntityRepository
 			INNER JOIN pedido ped ON ped.id_cliente = cli.id_cliente
 			");
 		$statement->execute();
-		return $statement->fetchAll();
+		return $statement->fetchAll();*/
 	}
 
 	public function findFilter($email=null,$id_pedido=null)
 	{
-		$where = null;
+		/*$where = null;
 		if($email) $where[] = " cli.email = '".$email."'";
 		if($id_pedido) $where[] = " ped.id = ".$id_pedido." ";
 		$sql = "
@@ -68,6 +69,21 @@ class ChamadoRepository extends \Doctrine\ORM\EntityRepository
 		$connection = $em->getConnection();
 		$statement = $connection->prepare($sql);
 		$statement->execute();
-		return $statement->fetchAll();
+		return $statement->fetchAll();*/
+
+		$qb = $this->getEntityManager()
+        ->createQueryBuilder()
+        ->select('cha.id,cha.title,cli.name,cli.email, ped.id AS id_pedido')
+        ->from('LongevoModelBundle:Chamado','cha')
+        ->join('LongevoModelBundle:Pedido','ped', \Doctrine\ORM\Query\Expr\Join::WITH, 'ped.id = cha.id_pedido')
+        ->leftJoin('ped.cliente','cli')
+        ->orderBy('cha.createdAt', 'desc'); 
+        if($email){
+        	$qb->where("cli.email = '".$email."'");
+        }
+        if($id_pedido){
+        	$qb->where("ped.id = ".$id_pedido);
+        }
+	    return $qb->getQuery()->getResult();
 	}
 }

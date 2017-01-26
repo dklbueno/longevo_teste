@@ -19,7 +19,7 @@ CREATE TABLE public.cliente
 CREATE TABLE public.chamado
 (
     id serial NOT NULL,
-    id_cliente integer NOT NULL,
+    id_pedido integer NOT NULL,
     created_at timestamp(0) without time zone NOT NULL DEFAULT now(),
     updated_at timestamp(0) without time zone NOT NULL DEFAULT now(),
     title character varying(255) COLLATE pg_catalog."default" NOT NULL,
